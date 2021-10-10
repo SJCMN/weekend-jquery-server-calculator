@@ -17,6 +17,8 @@ function onReady () {
     $('#clearBtn').on( 'click' , clearBtn )
 
     //inputs
+    $('#firstNumberInput').keyup( firstNumberInput )
+    $('#secondNumberInput').keyup( secondNumberInput )
 }
 
 
@@ -74,3 +76,24 @@ function clearBtn(){
     })
     console.log($('#clearBtn').data());
 }
+
+function firstNumberInput(event) {
+    // console.log($('#firstNumberInput').val(), event);
+    $.ajax({
+        method: 'POST',
+        url: '/num',
+        data: { num: $('#firstNumberInput').val()}
+    })
+  
+}
+
+function secondNumberInput(event) {
+    // console.log($('#secondNumberInput').val(), event);
+    $.ajax({
+        method: 'POST',
+        url: '/num',
+        data: {num: $('#secondNumberInput').val()}
+    })
+  
+}
+

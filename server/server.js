@@ -22,3 +22,12 @@ app.post('/math', (req, res) => {
   
     res.sendStatus(201);
   })
+
+  app.post('/num', (req, res) => {
+
+    //grab mathMethod from request body
+    let num = req.body;
+    console.log('This is the number input', num);
+  
+    res.sendStatus(201);
+  })
