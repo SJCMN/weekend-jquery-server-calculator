@@ -1,9 +1,10 @@
-# Project Name
+# Server Side Calculator
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+Project to develop a fully functioning calculator using an Express server.
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+Using a server to process calculations sent as POST requests, computed results are then requested using GET method, then rendered to the DOM.
+Each calculation will be recorded to a list below the calculated result of the operation.
 
 Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
