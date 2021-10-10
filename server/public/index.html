@@ -15,13 +15,15 @@
 
     <div id="calcInputs">
         <input type="text" id="firstNumberInput">
-        <button id="addBtn"> + </button>
-        <button id="subtractBtn"> - </button>
-        <button id="multiplyBtn"> &#215 </button>
-        <button id="divideBtn"> &#247 </button>
-        <input type="text" id="secondNumberInput">
-        <button id="equalBtn"> &#61 </button>
-        <button id="clearBtn"> &#1017 </button>
+        <span class="mathBtns">
+            <button id= "addBtn" data-method= "add"> + </button>
+            <button id= "subtractBtn" data-method= "subtract"> - </button>
+            <button id= "multiplyBtn" data-method= "multiply"> &#215 </button>
+            <button id= "divideBtn" data-method= "divide"> &#247 </button>
+        </span>
+        <input type= "text" id= "secondNumberInput">
+        <button id= "equalBtn" data-method= "equal"> &#61 </button>
+        <button id= "clearBtn" data-method= "clear"> &#1017 </button>
     </div>
     <div>
         <h2 id="resultNum"> 42 </h2>
