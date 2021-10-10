@@ -75,14 +75,18 @@ function clearBtn(){
         data: $('#clearBtn').data(),
     })
     console.log($('#clearBtn').data());
+    $('#firstNumberInput').val('')
+    $('#secondNumberInput').val('')
 }
 
 function firstNumberInput(event) {
     // console.log($('#firstNumberInput').val(), event);
     $.ajax({
         method: 'POST',
-        url: '/num',
-        data: { num: $('#firstNumberInput').val()}
+        url: '/firstNumber',
+        data: { 
+            number: $('#firstNumberInput').val()
+        }
     })
   
 }
@@ -91,8 +95,10 @@ function secondNumberInput(event) {
     // console.log($('#secondNumberInput').val(), event);
     $.ajax({
         method: 'POST',
-        url: '/num',
-        data: {num: $('#secondNumberInput').val()}
+        url: '/secondNumber',
+        data: {
+            number: $('#secondNumberInput').val()
+        }
     })
   
 }
