@@ -6,6 +6,8 @@ const app = express();
 let num1
 let num2
 let operator = ''
+let result = 0
+
 // express
 app.listen( PORT , () =>{
     console.log(`server listening on ${PORT}`);
@@ -24,8 +26,6 @@ app.post('/math', (req, res) => {
 
     // check last operator
 
-    let result = 0
-
 
     if (mathMethod.method === 'add'){
             operator = 'add'
@@ -38,8 +38,11 @@ app.post('/math', (req, res) => {
         } 
 
     console.log('the operator is: ', operator);
-    
 
+    let first = parseInt(num1.number)
+    let second = parseInt(num2.number)
+    
+    // calculate value
     if (mathMethod.method === 'equal'){
         if (operator === 'add' ){
             result = first + second;
@@ -57,7 +60,7 @@ app.post('/math', (req, res) => {
     res.sendStatus(201);
   })
 
-  app.post('/firstNumber', (req, res) => {
+app.post('/firstNumber', (req, res) => {
 
     //grab mathMethod from request body
     num1 = req.body;
@@ -66,11 +69,38 @@ app.post('/math', (req, res) => {
     res.sendStatus(201);
   })
 
-  app.post('/secondNumber', (req, res) => {
+app.post('/secondNumber', (req, res) => {
 
     //grab mathMethod from request body
     num2 = req.body;
     console.log('This is the secondNumber input', num2);
   
     res.sendStatus(201);
+  })
+
+app.get('/results', (req,res) =>{
+
+    // display operator
+    // multiply x U+02DF
+    // division symbol U+00F7
+    let operatorSymbol = ''
+
+
+    if (operator === 'add') {
+        operatorSymbol = '+'
+    } if (operator === 'subtract') {
+        operatorSymbol = '-'
+    } if (operator === 'multiply'){
+        operatorSymbol = '*'
+    } if (operator === 'divide'){
+        operatorSymbol = '/'
+    }
+
+
+    let resultValue = {
+        equalsResult: result,
+        calcLog: num1.number +' '+ operatorSymbol +' '+ num2.number +' = '+ result
+    }
+
+    res.send(resultValue)
   })

@@ -14,6 +14,7 @@ function onReady () {
     $('#multiplyBtn').on( 'click' , multiplyBtn )
     $('#divideBtn').on( 'click' , divideBtn )
     $('#equalBtn').on( 'click' , equalBtn )
+    $('#equalBtn').on( 'click' , displayResults )
     $('#clearBtn').on( 'click' , clearBtn )
 
     //inputs
@@ -101,5 +102,19 @@ function secondNumberInput(event) {
         }
     })
   
+}
+
+// GET Routes
+function displayResults (){
+    $.ajax({
+        method: 'GET',
+        url: '/results',
+    }).then(function (response){
+        // appendHistoryLog(response);
+        // appendResult();
+        console.log('This is the result from the server: ', response);
+        
+    })
+
 }
 
