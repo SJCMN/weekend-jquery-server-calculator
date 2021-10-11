@@ -110,11 +110,17 @@ function displayResults (){
         method: 'GET',
         url: '/results',
     }).then(function (response){
-        // appendHistoryLog(response);
-        // appendResult();
+        appendResult(response);
         console.log('This is the result from the server: ', response);
         
     })
 
 }
 
+// DOM render
+function appendResult(response){
+    $("#calcHistory").append(`
+        <li>${response.calcLog}</li>
+    `);
+    $('#resultNum').text(`${response.equalsResult}`)
+}
