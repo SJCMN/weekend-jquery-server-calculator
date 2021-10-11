@@ -119,8 +119,13 @@ function displayResults (){
 
 // DOM render
 function appendResult(response){
-    $("#calcHistory").append(`
-        <li>${response.calcLog}</li>
-    `);
-    $('#resultNum').text(`${response.equalsResult}`)
+    $("#calcHistory").empty()
+    console.log(response.log);
+    
+    for (let i =response.log.length-1; i>=0; i--) {
+        $("#calcHistory").append(`
+            <li>${response.log[i]}</li>
+        `);
+        $('#resultNum').text(`${response.equalsResult}`)
+    }
 }

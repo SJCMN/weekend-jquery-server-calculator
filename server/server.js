@@ -7,6 +7,7 @@ let num1
 let num2
 let operator = ''
 let result = 0
+let calcLog = []
 
 // express
 app.listen( PORT , () =>{
@@ -97,10 +98,14 @@ app.get('/results', (req,res) =>{
     }
 
 
-    let resultValue = {
+    let calcResult = num1.number +' '+ operatorSymbol +' '+ num2.number +' = '+ result,
+
+    resultValue = {
         equalsResult: result,
-        calcLog: num1.number +' '+ operatorSymbol +' '+ num2.number +' = '+ result
+        log: calcLog
     }
+
+    calcLog.push(calcResult)
 
     res.send(resultValue)
   })
