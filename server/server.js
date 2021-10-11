@@ -5,7 +5,7 @@ const app = express();
 
 let num1
 let num2
-
+let operator = ''
 // express
 app.listen( PORT , () =>{
     console.log(`server listening on ${PORT}`);
@@ -22,10 +22,38 @@ app.post('/math', (req, res) => {
     let mathMethod = req.body;
     console.log('This is the calculator method', mathMethod.method);
 
+    // check last operator
+
+    let result = 0
+
+
+    if (mathMethod.method === 'add'){
+            operator = 'add'
+        } if ( mathMethod.method === 'subtract'){
+            operator = 'subtract'
+        } if ( mathMethod.method === 'multiply'){
+            operator = 'multiply'
+        } if (mathMethod.method === 'divide'){
+            operator = 'divide'
+        } 
+
+    console.log('the operator is: ', operator);
+    
+
     if (mathMethod.method === 'equal'){
-    console.log('The calculator says', num1.number +' '+ num2.number);
+        if (operator === 'add' ){
+            result = first + second;
+        } if (operator === 'subtract') {
+            result = first - second;
+        } if (operator === 'multiply') {
+            result = first * second;
+        } if (operator === 'divide') {
+            result = first / second;
+        }
     }
     
+    console.log('The calculator says', num1.number + ' '+ num2.number, result);
+
     res.sendStatus(201);
   })
 
